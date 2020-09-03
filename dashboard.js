@@ -23,7 +23,7 @@ function carregaInfo(){
 
 
 function recuperaRelatorio(){
-    fetch("http://localhost:8088/solicitacao/todas")
+    fetch("http://localhost:8088/solicitacao/status/0")
       .then(res=>res.json())
       .then(lista=>preencheRelatorio(lista));
 }
@@ -53,5 +53,22 @@ function preencheRelatorio(lista){
 
 
 function atualizarStatus(numReq, novoStatus){
-    alert("Alterando requisicao #"+numReq+" para estado "+novoStatus);
+    var msgBody = {
+        numSeq : numReq,
+        situacao : novoStatus
+    };
+    var cabecalho = {
+        method: "PUT",
+        body : JSON.stringify(msgBody),
+        headers: {
+            "content-type":"application/json"
+        }
+    };
+    fetch("http://localhost:8088/solicitacao/atualiza", cabecalho)
+       .then(res => notificaSucesso());
+}
+
+function notificaSucesso(){
+    alert("Solicitacao atualizada!");
+    recuperaRelatorio();
 }
