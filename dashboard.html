@@ -9,9 +9,37 @@
     <script type="text/javascript" src="dashboard.js"></script>
     <title>.: Dashboard de Agendamentos :.</title>
 </head>
-<body>
+<body onload="carregaInfo()">
     <div class="container">
-        Bem vindo!
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3>Gestor de Agendamentos</h3>
+            </div>
+        </div>
+        <div id="dadosUsuario">
+            ** aqui quero que vá a parte de info do usuario **
+        </div>
+
+        <label for="filtro" id="lblFiltro">Filtro</label>
+        <div class="row" id="filtro">
+            <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+                <select id="selectFiltro" class="form-control form-control-lg">
+                    <option value=0>Solicitação Inicial</option>
+                    <option value=1>Aprovada</option>
+                    <option value=2>Negada</option>
+                    <option value=3>Cancelada</option>
+                </select>
+
+            </div>
+            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                <button class="btn btn-primary">Aplicar</button>
+            </div>
+        </div>
+        <label for="relatorio" id="lblRelatorio">Solicitações</label>
+        <div id="relatorio">
+            ** aqui vem o relatório **
+
+        </div>
 
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
