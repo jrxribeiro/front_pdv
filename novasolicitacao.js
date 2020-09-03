@@ -51,6 +51,7 @@ function enviarDados(){
 function trataResultado(res){
     if (res.status == 201){
         alert("Solicitacao criada com sucesso!");
+        location.reload();
     }
     else{
         alert("ERRO ao criar a solicitacao - verifique preenchimento do formulario");
