@@ -29,7 +29,7 @@ function enviar(){
 
 function tratarResposta(res){
     if (res.status == 200){
-        document.getElementById("resultado").innerHTML = "Conectado com Sucesso!";
+        res.json().then(objUser => logar(objUser))
     }
     else if (res.status == 404){
         document.getElementById("resultado").innerHTML = "Usuario Desconhecido";
@@ -40,5 +40,10 @@ function tratarResposta(res){
     else {
         document.getElementById("resultado").innerHTML = "Erro Desconhecido";
     }
+}
 
+function logar(objUser){
+    console.log(objUser);
+    localStorage.setItem("pdvUser", JSON.stringify(objUser));
+    window.location = "dashboard.html";
 }
