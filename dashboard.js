@@ -72,3 +72,17 @@ function notificaSucesso(){
     alert("Solicitacao atualizada!");
     recuperaRelatorio();
 }
+
+function filtrarStatus(){
+    var status = document.getElementById("selectFiltro").value;
+    var url;
+    if (status != -1){
+        url = "http://localhost:8088/solicitacao/status/"+status;
+    }
+    else{
+        url = "http://localhost:8088/solicitacao/todas";
+    }
+    fetch(url)
+      .then(res => res.json())
+      .then(lista => preencheRelatorio(lista));
+}
