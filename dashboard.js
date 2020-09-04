@@ -82,6 +82,11 @@ function filtrarStatus(){
     else{
         url = "http://localhost:8088/solicitacao/todas";
     }
+
+    var botoesExport = `<a href="geradorPDF.html?status=${status}" target="_blank">PDF</a>
+                        <a href="geradorCSV.html?status=${status}" target="_blank">CSV</a>`;
+
+    document.getElementById("exportar").innerHTML = botoesExport;
     fetch(url)
       .then(res => res.json())
       .then(lista => preencheRelatorio(lista));
